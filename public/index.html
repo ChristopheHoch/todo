@@ -62,6 +62,8 @@
               <button {{action "removeTodo"}} class="destroy"></button>
             {{/if}}
           </li>
+        {{else}}
+          <li><label>No task to display, create one now!</label></li>
         {{/each}}
       </ul>
     </script>
