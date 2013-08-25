@@ -5,6 +5,7 @@
 
 var express = require('express')
   , mongoose = require('mongoose')
+  , config = require('./config')
   , http = require('http')
   , path = require('path')
   , app
@@ -22,7 +23,7 @@ app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
 // connection to MongoDB
-mongoose.connect('mongodb://test:test@paulo.mongohq.com:10019/todo');
+mongoose.connect(config.creds.mongoose_auth);
 
 db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Connection error:'));

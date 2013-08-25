@@ -1,11 +1,20 @@
-todo
-====
+# Todo List
 
-Todo list application
+This is application is based on the [ember.js tutorial][1]. It is using a node.js RESTful API and a MongoDB database.
 
-Libraries version
------------------
+## Install and Usage
+```
+npm install
+```
+Rename the file `config-sample.js` into `config.js` and add your own database connection URL. Launch the application with:
+```
+node app.js
+```
+
+## Web application libraries
 * jQuery v1.10.2
-* Handlebars v1.0.0-rc.4
-* Ember v1.0.0-rc.6.1
-* Ember-data v0.13
+* Handlebars v1.0.0
+* Ember v1.0.0-rc.7.1
+* Ember-data (latest build)
+
+ [1]: http://emberjs.com/guides/getting-started/
