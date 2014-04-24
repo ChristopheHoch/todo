@@ -8,7 +8,7 @@ npm install
 ```
 Rename the file `config-sample.js` into `config.js` and add your own database connection URL. Launch the application with:
 ```
-node app.js
+node src/server.js
 ```
 
 ## Web application libraries
