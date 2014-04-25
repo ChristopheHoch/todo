@@ -1,15 +1,20 @@
+/* global Ember, Todos */
+
 Todos.EditTodoView = Ember.TextField.extend({
-  classNames: ['edit'],
+    classNames: ['edit'],
 
-  insertNewline: function () {
-    this.get('controller').acceptChanges();
-  },
+    insertNewline: function() {
+        "use strict";
+        this.get('controller').acceptChanges();
+    },
 
-  focusOut: function () {
-    this.get('controller').acceptChanges();
-  },
+    focusOut: function() {
+        "use strict";
+        this.get('controller').acceptChanges();
+    },
 
-  didInsertElement: function () {
-    this.$().focus();
-  }
+    didInsertElement: function() {
+        "use strict";
+        this.$().focus();
+    }
 });

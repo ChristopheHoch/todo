@@ -1,9 +1,30 @@
 {
   "name": "todo",
+  "description": "Todo list powered by Node.js and Ember.js",
+  "author": {
+    "name": "Christophe Hoch",
+    "email": "christophe.hoch@gmail.com",
+    "url": "http://christophehoch.fr/"
+  },
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "scripts": {
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "test": "grunt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChristopheHoch/todo.git"
+  },
+  "config": {
+    "blanket": {
+      "pattern": [
+        "src"
+      ]
+    },
+    "travis-cov": {
+      "threshold": 70
+    }
   },
   "dependencies": {
     "express": "~3.4.8",
@@ -11,5 +32,20 @@
     "nconf": "^0.6.9",
     "require-directory": "^1.2.0",
     "winston": "^0.7.3"
+  },
+  "devDependencies": {
+    "blanket": "^1.1.6",
+    "chai": "^1.9.1",
+    "grunt": "^0.4.4",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-env": "^0.4.1",
+    "grunt-mocha-cov": "^0.2.1",
+    "grunt-mocha-test": "^0.10.2",
+    "grunt-plato": "^1.0.0",
+    "mocha": "^1.18.2",
+    "mocha-lcov-reporter": "0.0.1",
+    "supertest": "^0.11.0",
+    "travis-cov": "^0.2.5"
   }
 }
