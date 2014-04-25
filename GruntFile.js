@@ -50,7 +50,7 @@ module.exports = function(grunt) {
                 options: {
                     coveralls: {
                         serviceName: 'travis-ci',
-                        repoToken: 'w3eqkp7Nd0B3Vo59U04t2JXf5tNKpyboi'
+                        repoToken: 'xhLi7AtLfiF8UfvpM8zX6SrhsyWDLridR'
                     }
                 }
             },

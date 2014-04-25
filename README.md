@@ -1,4 +1,5 @@
 # Todo List
+[![Build Status](https://travis-ci.org/ChristopheHoch/todo.png?branch=master)](https://travis-ci.org/ChristopheHoch/todo) [![Coverage Status](https://coveralls.io/repos/ChristopheHoch/todo/badge.png)](https://coveralls.io/r/ChristopheHoch/todo) [![Dependency Status](https://david-dm.org/ChristopheHoch/todo.png)](https://david-dm.org/ChristopheHoch/todo)
 
 This is application is based on the [ember.js tutorial][1]. It is using a node.js RESTful API and a MongoDB database.
 
@@ -6,7 +7,7 @@ This is application is based on the [ember.js tutorial][1]. It is using a node.j
 ```
 npm install
 ```
-Rename the file `config-sample.js` into `config.js` and add your own database connection URL. Launch the application with:
+Launch the application with:
 ```
 node src/server.js
 ```
