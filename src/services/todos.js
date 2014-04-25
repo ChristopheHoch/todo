@@ -10,6 +10,7 @@ Todo.prototype.findAll = function(callback) {
     logger.silly('Finding all todos...');
     TodoModel.find(function(err, todos) {
         if(err) {
+            logger.error(err);
             return callback({
                 code: 500,
                 message: 'Internal Server Error'
@@ -19,14 +20,13 @@ Todo.prototype.findAll = function(callback) {
     });
 };
 
-Todo.prototype.create = function(title, is_completed, callback) {
-    var newTodo = new TodoModel({
-        title: title,
-        is_completed: is_completed
-    });
+Todo.prototype.create = function(data, callback) {
+    "use strict";
+    var newTodo = new TodoModel(data);
 
     newTodo.save(function (err, todo) {
         if(err) {
+            logger.error(err);
             return callback({
                 code: 500,
                 message: 'Internal Server Error'
@@ -36,14 +36,11 @@ Todo.prototype.create = function(title, is_completed, callback) {
     });
 };
 
-Todo.prototype.update = function(id, title, is_completed, callback) {
-    var updatedTodo = {
-        title: title,
-        is_completed: is_completed
-    };
-
-    TodoModel.findByIdAndUpdate(id, updatedTodo, function(err, todo) {
+Todo.prototype.update = function(id, data, callback) {
+    "use strict";
+    TodoModel.findByIdAndUpdate(id, data, function(err, todo) {
         if(err) {
+            logger.error(err);
             return callback({
                 code: 500,
                 message: 'Internal Server Error'
@@ -54,8 +51,10 @@ Todo.prototype.update = function(id, title, is_completed, callback) {
 };
 
 Todo.prototype.destroy = function(id, callback) {
+    "use strict";
     TodoModel.findByIdAndRemove(id, function(err) {
         if(err) {
+            logger.error(err);
             return callback({
                 code: 500,
                 message: 'Internal Server Error'

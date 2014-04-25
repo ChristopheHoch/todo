@@ -18,10 +18,9 @@ function findAll(req, res) {
 
 function create(req, res) {
     "use strict";
-    var title = req.body.title,
-        is_completed = req.body.is_completed;
+    var newTodo = req.body.todo;
     
-    Todo.create(title, is_completed, function (err, todo) {
+    Todo.create(newTodo, function (err, todo) {
         if(err) {
             logger.error('An error occured while creating a todo: ' + err);
             return;
@@ -34,12 +33,12 @@ function create(req, res) {
 function update(req, res) {
     "use strict";
     var id = req.params.id,
-        title = req.body.title,
-        is_completed = req.body.is_completed;
+        updatedTodo = req.body.todo;
     
-    Todo.update(id, title, is_completed, function (err, todo) {
+    logger.silly('Updating todo ' + id);
+    Todo.update(id, updatedTodo, function (err, todo) {
         if(err) {
-            logger.error('An error occured while updating a todo: ' + err);
+            logger.error('An error occured while updating a todo' + err);
             return;
         }
         logger.silly('Todo updated');
