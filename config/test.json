@@ -3,6 +3,6 @@
     "port": 3000
   },
   "mongo": {
-    "url":  "mongodb://localhost/todo"
+    "url":  "mongodb://localhost/test-todo"
   }
 }

@@ -20,6 +20,14 @@ function create(req, res) {
     "use strict";
     var newTodo = req.body.todo;
     
+    if(!newTodo) {
+        return res.json(400, { error: "No todo to save" });
+    }
+    console.log(newTodo);
+    if(typeof newTodo.title === 'undefined' || typeof newTodo.is_completed === 'undefined') {
+        return res.json(400, { error: "Todo incomplete" });
+    }
+    
     Todo.create(newTodo, function (err, todo) {
         if(err) {
             logger.error('An error occured while creating a todo: ' + err);
