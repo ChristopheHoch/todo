@@ -19,8 +19,8 @@ describe('Todo Update API', function() {
 
         todo.save(function(error, savedTodo) {
             id = savedTodo._id;
+            done();
         });
-        done();
     });
 
     afterEach(function(done) {
@@ -28,8 +28,8 @@ describe('Todo Update API', function() {
             if(err) {
                 console.log(err);
             }
+            done();
         });
-        done();
     });
 
     describe('when updating a todo with unknown id', function() {

@@ -19,8 +19,8 @@ describe('Todo Destroy API', function() {
 
         todo.save(function(error, savedTodo) {
             id = savedTodo._id;
+            done();
         });
-        done();
     });
 
     afterEach(function(done) {
@@ -28,8 +28,8 @@ describe('Todo Destroy API', function() {
             if(err) {
                 console.log(err);
             }
+            done();
         });
-        done();
     });
     
     describe('when deleting a todo with unknown id', function() {

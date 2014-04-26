@@ -12,12 +12,14 @@ describe('Todo Create API', function() {
     var id;
 
     afterEach(function(done) {
-        TodoSchema.findByIdAndRemove(id, function(err) {
-            if(err) {
-                console.log(err);
-                return;
-            }
-        });
+        if(id) {
+            TodoSchema.findByIdAndRemove(id, function(err) {
+                if(err) {
+                    console.log(err);
+                    return;
+                }
+            });
+        }
         done();
     });
 
