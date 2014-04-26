@@ -18,11 +18,11 @@ describe('Todo Find API', function() {
         
         todos.push(new TodoSchema({
             title: "Read a book",
-            is_completed: false
+            isCompleted: false
         }));
         todos.push(new TodoSchema({
             title: "Watch a movie",
-            is_completed: true
+            isCompleted: true
         }));
 
         _.each(todos, function(todo) {

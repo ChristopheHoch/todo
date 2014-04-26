@@ -6,6 +6,6 @@
         "url":  "mongodb://localhost/test-todo"
     },
     "log": {
-        "level": "error"
+        "level": "silly"
     }
 }

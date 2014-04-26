@@ -13,9 +13,9 @@ node src/server.js
 ```
 
 ## Web application libraries
-* jQuery v1.10.2
-* Handlebars v1.0.0
-* Ember v1.0.0-rc.7.1
-* Ember-data (latest build)
+* jQuery v2.1.0
+* Handlebars v1.3.0
+* Ember v1.5.1
+* Ember-Data v1.0.0-beta.7
 
  [1]: http://emberjs.com/guides/getting-started/

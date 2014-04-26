@@ -14,7 +14,7 @@ describe('Todo Destroy API', function() {
     beforeEach(function(done) {
         var todo = new TodoSchema({
             title: "Read a book",
-            is_completed: false
+            isCompleted: false
         });
 
         todo.save(function(error, savedTodo) {

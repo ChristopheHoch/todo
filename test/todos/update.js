@@ -14,7 +14,7 @@ describe('Todo Update API', function() {
     beforeEach(function(done) {
         var todo = new TodoSchema({
             title: "Read a book",
-            is_completed: false
+            isCompleted: false
         });
 
         todo.save(function(error, savedTodo) {
@@ -36,7 +36,7 @@ describe('Todo Update API', function() {
         it('should respond with 500', function(done){
             var update = {
                     title: "Eat a sandwich",
-                    is_completed: false
+                    isCompleted: false
                 };
             
             request(app)
@@ -50,7 +50,7 @@ describe('Todo Update API', function() {
         it('should respond with 200', function(done){
             var update = {
                     title: "Eat a sandwich",
-                    is_completed: false
+                    isCompleted: false
                 };
             
             request(app)

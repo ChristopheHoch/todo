@@ -36,7 +36,7 @@ describe('Todo Create API', function() {
         it('should respond with 200', function(done){
             var todo = {
                 title: "Travailler",
-                is_completed: false
+                isCompleted: false
             };
 
             request(app)
@@ -49,7 +49,7 @@ describe('Todo Create API', function() {
     describe('when creating a new todo with no title', function() {
         it('should respond with 200', function(done){
             var todo = {
-                is_completed: true
+                isCompleted: true
             };
 
             request(app)
@@ -76,7 +76,7 @@ describe('Todo Create API', function() {
         it('should respond with 200', function(done){
             var todo = {
                 title: "Travailler",
-                is_completed: false
+                isCompleted: false
             };
 
             request(app)

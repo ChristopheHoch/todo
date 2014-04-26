@@ -6,7 +6,7 @@ var mongoose = require('mongoose'),
 
 TodoSchema = mongoose.Schema({
     title: String,
-    is_completed: Boolean
+    isCompleted: Boolean
 });
 
 module.exports = mongoose.model('Todo', TodoSchema);

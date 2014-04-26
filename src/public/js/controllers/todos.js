@@ -1,28 +1,38 @@
 /* global Ember, Todos */
 
 Todos.TodosController = Ember.ArrayController.extend({
-    createTodo: function () {
-        "use strict";
-        // Get the todo title set by the "New Todo" text field
-        var title = this.get('newTitle');
-        if (!title.trim()) { return; }
+    actions: {
+        createTodo: function () {
+            "use strict";
+            // Get the todo title set by the "New Todo" text field
+            var title = this.get('newTitle');
+            if (!title.trim()) { return; }
 
-        // Create the new Todo model
-        var todo = Todos.Todo.createRecord({
-            title: title,
-            isCompleted: false
-        });
+            // Create the new Todo model
+            var todo = this.store.createRecord('todo', {
+                title: title,
+                isCompleted: false
+            });
 
-        // Clear the "New Todo" text field
-        this.set('newTitle', '');
+            // Clear the "New Todo" text field
+            this.set('newTitle', '');
 
-        // Save the new model
-        todo.save();
+            // Save the new model
+            todo.save();
+        },
+        
+        clearCompleted: function () {
+            "use strict";
+            var completed = this.filterBy('isCompleted', true);
+            completed.invoke('deleteRecord');
+
+            this.get('store').commit();
+        }
     },
 
     remaining: function () {
         "use strict";
-        return this.filterProperty('isCompleted', false).get('length');
+        return this.filterBy('isCompleted', false).get('length');
     }.property('@each.isCompleted'),
 
     inflection: function () {
@@ -38,16 +48,8 @@ Todos.TodosController = Ember.ArrayController.extend({
 
     completed: function () {
         "use strict";
-        return this.filterProperty('isCompleted', true).get('length');
+        return this.filterBy('isCompleted', true).get('length');
     }.property('@each.isCompleted'),
-
-    clearCompleted: function () {
-        "use strict";
-        var completed = this.filterProperty('isCompleted', true);
-        completed.invoke('deleteRecord');
-
-        this.get('store').commit();
-    },
 
     allAreDone: function (key, value) {
         "use strict";
@@ -55,7 +57,7 @@ Todos.TodosController = Ember.ArrayController.extend({
             return !!this.get('length') && this.everyProperty('isCompleted', true);
         } else {
             this.setEach('isCompleted', value);
-            this.get('store').save();
+            this.invoke('save');
             return value;
         }
     }.property('@each.isCompleted')
