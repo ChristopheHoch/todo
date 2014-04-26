@@ -7,9 +7,9 @@ function Todo() {}
 
 Todo.prototype.findAll = function(callback) {
     "use strict";
-    logger.silly('Finding all todos...');
     TodoModel.find(function(err, todos) {
         if(err) {
+            logger.error('An error occured while find all todos:');
             logger.error(err);
             return callback({
                 code: 500,
@@ -26,6 +26,7 @@ Todo.prototype.create = function(data, callback) {
 
     newTodo.save(function (err, todo) {
         if(err) {
+            logger.error('An error occured while creating a todo:');
             logger.error(err);
             return callback({
                 code: 500,
@@ -40,6 +41,7 @@ Todo.prototype.update = function(id, data, callback) {
     "use strict";
     TodoModel.findByIdAndUpdate(id, data, function(err, todo) {
         if(err) {
+            logger.error('An error occured while updating the todo: ' + id);
             logger.error(err);
             return callback({
                 code: 500,
@@ -54,6 +56,7 @@ Todo.prototype.destroy = function(id, callback) {
     "use strict";
     TodoModel.findByIdAndRemove(id, function(err) {
         if(err) {
+            logger.error('An error occured while deleting the todo: ' + id);
             logger.error(err);
             return callback({
                 code: 500,

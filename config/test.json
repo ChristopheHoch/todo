@@ -1,8 +1,11 @@
 {
-  "express": {
-    "port": 3000
-  },
-  "mongo": {
-    "url":  "mongodb://localhost/test-todo"
-  }
+    "express": {
+        "port": 3000
+    },
+    "mongo": {
+        "url":  "mongodb://localhost/test-todo"
+    },
+    "log": {
+        "level": "error"
+    }
 }

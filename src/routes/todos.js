@@ -8,8 +8,7 @@ function findAll(req, res) {
     "use strict";
     Todo.findAll(function (err, todos) {
         if(err) {
-            logger.error('An error occured while looking for todos: ' + err);
-            return;
+            return res.send(500);
         }
         logger.silly('Found todos: ' + JSON.stringify(todos));
         return res.send({todos: todos});
@@ -23,15 +22,13 @@ function create(req, res) {
     if(!newTodo) {
         return res.json(400, { error: "No todo to save" });
     }
-    console.log(newTodo);
     if(typeof newTodo.title === 'undefined' || typeof newTodo.is_completed === 'undefined') {
         return res.json(400, { error: "Todo incomplete" });
     }
     
     Todo.create(newTodo, function (err, todo) {
         if(err) {
-            logger.error('An error occured while creating a todo: ' + err);
-            return;
+            return res.send(500);
         }
         logger.silly('Todo created');
         return res.send({todo: todo});
@@ -46,8 +43,7 @@ function update(req, res) {
     logger.silly('Updating todo ' + id);
     Todo.update(id, updatedTodo, function (err, todo) {
         if(err) {
-            logger.error('An error occured while updating a todo' + err);
-            return;
+            return res.send(500);
         }
         logger.silly('Todo updated');
         return res.send({todo: todo});
@@ -57,13 +53,13 @@ function update(req, res) {
 function destroy(req, res) {
     "use strict";
     var id = req.params.id;
-    
+
     Todo.destroy(id, function(err) {
         if(err) {
-            logger.error('An error occured while destroying a todo: ' + err);
-            return;
+            return res.send(500);
         }
         logger.silly('Todo destroyed');
+        return res.send(200);
     });
 }
 

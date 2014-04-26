@@ -1,5 +1,8 @@
 {
-  "application": {
-    "name": "Todo List"
-  }
+    "application": {
+        "name": "Todo List"
+    },
+    "log": {
+        "level": "info"
+    }
 }
